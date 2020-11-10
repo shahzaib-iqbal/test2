@@ -1,0 +1,35 @@
+import math
+count=0
+num = int(input("Enter a number:\n"))    # Taking input from the user...
+sq=0
+number=0
+ct=0
+
+def isPrime(n):
+    c=False
+    sq = round(math.sqrt(x))
+    for y in range(2,sq+1):
+        if x % y == 0:            # is not a prime number...
+            c = True
+            break
+    if c == False:                # is a prime number...
+        return True
+    return False
+
+def rotate(a,n):
+    return a[n:] + a[:n]
+
+for x in range(2,num):
+    if isPrime(x):
+        ct=0
+        for i in range(len(str(x))):
+            number = int(rotate(str(x),i))
+            print("Rotate: " + str(number))
+            if isPrime(number) == True:
+                ct+=1
+                print("isPrime: " + str(number))
+            else:
+                break
+        if ct == len(str(x)):
+            count+=1
+print(count)
